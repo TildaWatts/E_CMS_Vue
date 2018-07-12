@@ -7,6 +7,8 @@ import 'iview/dist/styles/iview.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import {store} from './store/store.js'
+
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter);
 Vue.use(iView);
@@ -19,5 +21,6 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })

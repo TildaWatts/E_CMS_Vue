@@ -3,7 +3,6 @@ const News = require('../model/news_model');
 
 exports.create = function(req,res,next){
     const news = new News(req.body);//post 数据在请求体中
-    console.log(req.body);
     news.save().then(data => {//发送保存请求
         res.json(data);
     });
@@ -30,7 +29,6 @@ exports.list = function(req,res,next){
     var nid = req.body.nid;
 
     var queryCondition = {};
-    console.log(req.body);
         if(req.body.nid && req.body.nid.trim().length > 0){
             nid = req.body.nid;
             

@@ -60,7 +60,7 @@
                 <Content :style="{padding: '24px 0', minHeight: '280px', background: '#fff'}">
                     <Layout>
                         <Sider hide-trigger :style="{background: '#fff'}">
-                            <Menu :theme="theme3" active-name="1" style="width:100%">
+                            <Menu :theme="theme3" @on-select="onSelectMenu" ref="contactMenu" :active-name="currentSelTag" style="width:100%">
                                     <MenuItem name="1">
                                         <Icon type="document-text"></Icon>
                                         <router-link to="/" exact>首页</router-link>
@@ -101,11 +101,31 @@
 </div>
 </template>
 <script>
+    import {Base} from './common/Base.js'
+
     export default {
         data () {
             return {
-                theme3: 'light'
+                theme3: 'light',
+                currentSelTag:"1",
             }
+        },
+        methods:{
+            onSelectMenu(name){
+                console.log('miaomao',name);
+            }
+        },
+        watch:{
+            '$route'(to,from){
+            if(to.path == '/comment'){
+                console.log('sssssss')
+                this.currentSelTag = "5";
+                this.$nextTick(()=>{
+                    this.$refs.contactMenu.updateOpened();
+                    this.$refs.contactMenu.updateActiveName();
+                })
+            }
+        }
         }
     }
 </script>

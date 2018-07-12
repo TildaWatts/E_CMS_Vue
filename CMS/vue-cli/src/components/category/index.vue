@@ -74,6 +74,7 @@ import {Base} from '../../common/Base.js'
 
                 }else{
                     this.$Message.error('请选择节点添加');
+                  
                 }
             },
             editData(params){
@@ -82,7 +83,6 @@ import {Base} from '../../common/Base.js'
                     this.addDataModal = true;
                     this.stateId = this.formValidate.parentId;
                     Object.defineProperty(this.formValidate,'parentId',{enumerable:false}); 
-                    console.log(this.formValidate);
                 }else{
                     this.$Message.error('请选择节点修改');
                 }
@@ -104,7 +104,6 @@ import {Base} from '../../common/Base.js'
             },
             onSelectChange(arr){
                 if(arr.length){
-                    console.log(arr[0]);
                     this.isSelectNode = true;
                     this.formValidate.text = arr[0].text;
                     this.formValidate.parentId = arr[0]._id;

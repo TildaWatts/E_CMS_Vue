@@ -184,9 +184,8 @@ import {Base} from '../../common/Base.js'
             comment(params){
 
                 this.$data.newsid = params.row._id;
-                console.log( this.$data.newsid ,params.row._id,'nnnnnnnnnn');
-
                 this.$router.push({path:`/comment?nid=${params.row._id}`});
+                // this.$options.methods.onSelectMenu(5);
             },
             addData(){
                 if(this.isSelectNode){
@@ -214,7 +213,8 @@ import {Base} from '../../common/Base.js'
                     method:'get',
                     
                     }).then(res=>{
-                    this.treeList = res.data;
+                         res.data[0].expand = true;
+                        this.treeList = res.data;
                 });
             },
         },

@@ -117,7 +117,6 @@
             }
         },
         getListData(){
-            console.log(this.filter.newsid,'ffffffffff');
             this.axios({
             method:'post',
             url:`${this.Usuite}/${this.module}/list`,
